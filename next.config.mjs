@@ -2,13 +2,13 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true, // поддержка новой структуры /app
+    appDir: true,
   },
   images: {
     domains: [
-      "www-league.nhlstatic.com", // если будешь подтягивать логотипы команд NHL
+      "www-league.nhlstatic.com",
     ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
