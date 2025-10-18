@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Глобальные стили */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #0C2340;
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+a {
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #94A3B8;
+}
+
+/* Для плавных анимаций */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1E3A8A;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
