@@ -1,27 +1,23 @@
 {
   "name": "nhl-site",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
-    "start": "next start",
-    "lint": "eslint"
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "nodemon src/server/server.js",
+    "dev:client": "next dev src/client",
+    "build": "next build src/client",
+    "start": "NODE_ENV=production node src/server/server.js"
   },
   "dependencies": {
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.6"
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "next": "^14.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.6",
-    "@eslint/eslintrc": "^3"
+    "nodemon": "^3.0.2",
+    "concurrently": "^8.2.0"
   }
 }
