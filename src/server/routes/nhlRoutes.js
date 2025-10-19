@@ -1,18 +1,22 @@
-import express from "express";
-import fetch from "node-fetch";
+import express from 'express';
+import fetch from 'node-fetch';
 
 const router = express.Router();
 
-// Расписание матчей
-router.get("/schedule", async (req, res) => {
+// Новый маршрут для получения расписания матчей
+router.get('/schedule', async (req, res) => {
   try {
-    const response = await fetch("https://statsapi.web.nhl.com/api/v1/schedule");
+    const response = await fetch('https://statsapi.web.nhl.com/api/v1/schedule');
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
     const data = await response.json();
     res.json(data);
-  } catch (err) {
-    console.error("Error fetching schedule:", err);
-    res.status(500).json({ error: "Failed to fetch NHL schedule" });
+  } catch (error) {
+    console.error('Ошибка при запросе к NHL API:', error);
+    res.status(500).json({ error: 'Не удалось получить данные NHL' });
   }
 });
 
 export default router;
+
